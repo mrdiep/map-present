@@ -3,7 +3,7 @@
  *
  * @param {HTMLElement} element - The element.
  */
-function draggable(element) {
+export function draggable(element: HTMLElement) {
   var isMouseDown = false;
 
   // initial mouse X and Y for `mousedown`
@@ -59,53 +59,3 @@ function draggable(element) {
     element.style.top = elementY + deltaY + "px";
   }
 }
-
-const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
-window.showAlert = (message, type) => {
-  const wrapper = document.createElement("div");
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    "</div>",
-  ].join("");
-
-  alertPlaceholder.append(wrapper);
-};
-
-draggable(document.getElementById("floating-panel"));
-
-window.createImageFromText = (header, text, scale = 1, fillStyle= "rgb(0, 77, 102)") => {
-  var canvas = document.createElement("canvas");
-
-  var ctx = canvas.getContext("2d");
-
-  ctx.font = "700 24px Arial";
-  const measureHeader = ctx.measureText(header);
-
-  ctx.font = "100 22px Arial";
-  const measureText = ctx.measureText(text);
-
-  canvas.width = scale * Math.max(measureText.width, measureHeader.width) + 20;
-  canvas.height =  scale * ( text ? 64 : 40)
-
-  if (fillStyle) {
-    ctx.fillStyle = fillStyle;
-    ctx.fillRect(0, 0, 500, 70);
-  }
-  ctx.fillStyle = fillStyle ? "#ffffcc" : '#ff0066';
-  ctx.font = "700 24px Arial";
-  ctx.scale(scale, scale);
-  ctx.fillText(header, 10, 25);
-
-  ctx.fillStyle = fillStyle ? "white" : "#ff0066";
-  ctx.font = "100 22px Arial";
-  
-  ctx.fillText(text, 10, 55);
-
-  return [canvas.toDataURL(), canvas.width, canvas.height];
-};
-
-
-t = window.createImageFromText('header', 'hello nguyen', 1)
-console.log(t[0])
-debugger;

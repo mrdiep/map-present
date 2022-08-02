@@ -92,3 +92,7 @@ body {
 #liveAlertPlaceholder {
   display: none; /*  mo ra luc chay xong animation */
 }
+
+body {
+  cursor: url('images/cursor.png');
+}

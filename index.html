@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>bản đồ vui</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./tscode/index.ts"></script>
+  </head>
+  <body>
+    <div id="code">
+      <div class="fluid-container">
+        <div class="row">
+          <div class="col-4">
+            <pre>
+            Phím F11: Full màn hình (NHỚ KHI QUAY)
+            Phím Số 1: Ẩn tất cả đường xung quanh
+            Phím Số 2: Hiện tất cả đường xung quanh
+            Phím Delete: Xóa hình tự vẽ
+          </pre>
+          <div class="form-floating">
+            <textarea class="form-control" rows="50" id="settingArea">
+              mã màu: 
+            </textarea>
+            <label for="settingArea">Tùy chỉnh</label>
+          </div>
+          </div>
+          <div class="col-8">
+            <div class="form-floating">
+              <button id="run-button" type="button" class="btn btn-primary" onclick="run()">Chạy</button>
+              <textarea class="form-control" rows="50" id="codeArea">
+              </textarea>
+              <label for="codeArea">Code</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div id="content">
+      <div id="floating-panel">
+        <image id="logo" src="images/vi-tri.png"></image>
+        <div id="message"></div>
+        <div id="liveAlertPlaceholder"></div>
+      </div>
+      <div id="map"></div>
+    </div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly&language=vi&libraries=drawing,geometry"
+      defer
+    ></script>
+  </body>
+</html>
